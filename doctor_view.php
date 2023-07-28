@@ -41,8 +41,13 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
         <li><a href="">Dashboard</a></li>
         <li><a href="">Prescription</a></li>
         <li><a href="">Appointments</a></li>
+        <li><a href="view_patients.php">Patients</a></li>
     </ul>
     <h2>Patients Awaiting</h2>
+    <!-- Add the "Add Patient" button to the right end of the header -->
+    <div style="position: absolute; top: 10px; right: 150px;">
+            <a href="book_appointment.php">Add Patient</a>
+        </div>
 
     <?php
     // Pagination variables
