@@ -71,7 +71,7 @@ if ($role === 'patient') {
             $_SESSION['username'] = $usernames;
     
             // Redirect to pharmacist page
-            header('Location: pharmacist_table.php');
+            header('Location: pharmacist_view.php');
             exit();
         } else {
             // Invalid credentials
@@ -89,7 +89,7 @@ if ($role === 'patient') {
             $_SESSION['username'] = $usernames;
     
             // Redirect to admin page
-            header('Location: admin_table.php');
+            header('Location: admin_view.php');
             exit();
         } else {
             // Invalid credentials

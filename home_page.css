@@ -11,7 +11,7 @@
         rgba(0, 0, 0, 0.75),
         rgba(0, 0, 0, 0.75)
       ),
-      url(background\ image.avif);
+      url(Images/background\ image.avif);
     background-size: cover;
     background-position: center;
     overflow-y: scroll;
@@ -164,7 +164,47 @@
    ::-webkit-scrollbar-thumb{
     background: linear-gradient(#48e604,#8edd0f);
    }
- 
+ /* Your existing CSS rules here */
+
+.section {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: #8edd0f;
+  padding: 40px 20px;
+}
+
+.section h2 {
+  font-size: 70px;
+  margin-top: 80px;
+}
+
+.section p {
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+.section-image {
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px; /* Set the maximum height for the image */
+}
+.footer {
+  background-color: #8edd0f;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+  
   
 
   

@@ -22,13 +22,22 @@ if ($checkResult->num_rows > 0) {
         $currentAmount = $conn->real_escape_string($amount[$i]);
         $currentDosage = $conn->real_escape_string($dosage[$i]);
 
-        $sql = "INSERT INTO prescription (Tradename, amount, Dosage, `Patient SSN`) 
-                VALUES ('$currentTradename', '$currentAmount', '$currentDosage', '$patientSSN')";
+        // Check if the prescription already exists for the patient
+        $existingQuery = "SELECT * FROM prescription WHERE `Patient SSN` = '$patientSSN' AND Tradename = '$currentTradename' AND amount = '$currentAmount' AND Dosage = '$currentDosage'";
+        $existingResult = $conn->query($existingQuery);
 
-        if ($conn->query($sql) === true) {
-            echo "Prescription added successfully!<br>";
+        if ($existingResult->num_rows > 0) {
+            echo "Prescription already exists for the patient: $patientSSN with Tradename: $currentTradename, amount: $currentAmount, and Dosage: $currentDosage<br>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
+            // Insert the prescription
+            $sql = "INSERT INTO prescription (`Tradename`, `amount`, `Dosage`, `Patient SSN`) 
+                    VALUES ('$currentTradename', '$currentAmount', '$currentDosage', '$patientSSN')";
+
+            if ($conn->query($sql) === true) {
+                echo "Prescription added successfully for the patient: $patientSSN<br>";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error . "<br>";
+            }
         }
     }
 } else {

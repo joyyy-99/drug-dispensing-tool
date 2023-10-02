@@ -21,7 +21,9 @@ $sql = "CREATE TABLE pharmacists (
     Emailaddress VARCHAR (30),
     Phonenumber INT(20),
     Dateofbirth DATE,
-    Placeofwork VARCHAR(30)
+    Placeofwork VARCHAR(30),
+    Username VARCHAR (30),
+    Passwords VARCHAR (30)
     )";
     
     if ($conn->query($sql) === TRUE) {

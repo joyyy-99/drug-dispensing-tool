@@ -42,22 +42,22 @@
   }
   
   .patient-button {
-    background-image: url('patient.jpg');
+    background-image: url('Images/patient.jpg');
   }
   
   .doctor-button {
-    background-image: url('doctor.jpg');
+    background-image: url('Images/doctor.jpg');
   }
   
   .company-button {
-    background-image: url('company.jpeg');
+    background-image: url('Images/company.jpeg');
   }
   
   .pharmacist-button {
-    background-image: url('pharmacist.jpg');
+    background-image: url('Images/pharmacist.jpg');
   }
   
   .admin-button {
-    background-image: url('admin.jpg');
+    background-image: url('Images/admin.jpg');
   }
   

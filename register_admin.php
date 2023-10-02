@@ -9,7 +9,7 @@ if ($conn ->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
 $sql = "INSERT INTO admins (Username,Passwords)
-VALUES ('$username','$passwords')";
+VALUES ('$usernames','$passwords')";
 if ($conn->query($sql)=== TRUE){
     echo "Registration Successful!";
 }else {
