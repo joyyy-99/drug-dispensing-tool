@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <header><h1>Welcome to Dawa Drug Dispensing Tool</h1></header>
+    <header><h1>Welcome to My Afya Drug Dispensing Tool</h1></header>
     <ul>
         <li><a href="">Dashboard</a></li>
         <li><a href="">Prescription</a></li>
@@ -33,6 +33,8 @@
         </div>
 
     <?php
+    require_once'connect.php';
+
     // Pagination variables
     $limit = 10; // Number of records to display per page
     $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page
@@ -87,7 +89,7 @@
                       <form action="prescription.php" method="post">
                         <input type="hidden" name="patient_ssn" value="' . $row['SSN'] . '">
                         <input type="hidden" name="patient_name" value="' . $fullName . '">
-                        <input type="submit" name="create_prescription" value="Create Prescription">
+                        <input type="submit" name="create_prescription" value="Make Prescription">
                       </form>
                     </td>
                   </tr>';

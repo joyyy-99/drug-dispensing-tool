@@ -8,7 +8,10 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     $username = $_SESSION['username'];
 
     // Display the username at the top right corner
-    echo '<div style="position: absolute; top: 10px; right: 10px;">Logged in as: ' . $username . '</div>';
+    echo '<div class="profile-info">';
+    echo '<img class="profile-image" src="profile.png" alt="Profile Picture">';
+    echo 'Logged in as: ' . $username;
+    echo '</div>';
 } else {
     // If the user is not logged in as a doctor, redirect to the login page
     header('Location: login.html');
@@ -19,6 +22,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
 <html>
 <head>
     <title>Doctor Portal</title>
+    <link rel="stylesheet" href="patient_views.css">
     <style>
         table {
             border-collapse: collapse;
@@ -37,12 +41,14 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
 </head>
 <body>
     <header><h1>Welcome to Dawa Drug Dispensing Tool</h1></header>
+    <div class="navbar">
     <ul>
         <li><a href="">Dashboard</a></li>
         <li><a href="">Prescription</a></li>
         <li><a href="">Appointments</a></li>
         <li><a href="view_patients.php">Patients</a></li>
     </ul>
+    </div>
     <h2>Patients Awaiting</h2>
     <!-- Add the "Add Patient" button to the right end of the header -->
     <div style="position: absolute; top: 10px; right: 150px;">
@@ -65,7 +71,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     }
 
     // Execute the MySQL query with search and pagination
-    $query = "SELECT patients.SSN, patients.Firstname, patients.Lastname, appointments.Date, appointments.Time
+    $query = "SELECT patients.SSN, patients.Firstname, patients.Lastname, appointments.date, appointments.time
               FROM patients
               JOIN appointments ON patients.SSN = appointments.SSN
               WHERE 1 $searchQuery

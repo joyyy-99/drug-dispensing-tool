@@ -8,7 +8,11 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'pharmacist') {
     $username = $_SESSION['username'];
 
     // Display the username at the top right corner
-    echo '<div style="position: absolute; top: 10px; right: 10px;">Logged in as: ' . $username . '</div>';
+    echo '<div class="profile-info">';
+    echo '<img class="profile-image" src="Images/profile.png" alt="Profile Picture">';
+    echo 'Logged in as: ' . $username;
+    echo '</div>';
+
 } else {
     // If the user is not logged in as a pharmacist, redirect to the login page
     header('Location: login.html');
@@ -19,6 +23,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'pharmacist') {
 <html>
 <head>
     <title>Pharmacist Portal</title>
+    <link rel="stylesheet" href="patient_views.css">
     <style>
         table {
             border-collapse: collapse;
@@ -37,14 +42,23 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'pharmacist') {
     
 </head>
 <body>
-    <header><h1>Welcome to Dawa Drug Dispensing Tool</h1></header>
+    <header><h1>Welcome to My Afya Drug Dispensing Tool</h1></header>
+    <div class="navbar">
     <ul>
-        <li><a href="">Dashboard</a></li>
-        <li><a href="">Prescription</a></li>
-        <li><a href="">Medicine</a></li>
+        <li><a href="prescription1.php">Prescription</a></li>
+        <li><a href="">Drugs</a>
+            <div class = "sub-menu-1">
+                <ul>
+                    <li><a href="drug.html">Register Drugs</a><li>
+                    <li><a href="#">View Drugs</a><li>
+                 </ul>
+            </div>   
+        </li>
         <li><a href="">Sales</a></li>
         <li><a href="">Invoices</a></li>
     </ul>
+    <!--
+    </div>
     <h2>Prescription List</h2>
     <?php
 // Fetch prescription list from the database
@@ -79,7 +93,7 @@ if ($result->num_rows > 0) {
                 <td>' . $row['amount'] . '</td>
                 <td>' . $row['Dosage'] . '</td>
                 <td>' . $row['Patient SSN'] . '</td>
-                <td><a href="view_prescriptions.php?patient_ssn=' . $row['patient_ssn'] . '">View Prescriptions</a></td>
+                <td><a href="view_prescriptions.php?Patient SSN=' . $row['Patient SSN'] . '">View Prescriptions</a></td>
               </tr>';
     }
 
@@ -91,6 +105,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-    
+-->
 </body>
 </html>
+ 

@@ -46,31 +46,8 @@ echo 'Patient Name: ' . $patientName . '<br>';
   }
   ?>
   <div>
-    <button type="button" onclick="addDrug()">Add Another Drug</button>
+    <button type="submit" name="add_drug" value="true">Add Another Drug</button>
   </div>
   <br><br>
   <input type="submit" value="Submit Prescription">
 </form>
-
-<?php
-// PHP code for dynamically adding another drug input field
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tradename'])) {
-    echo '<div id="additional-drugs">';
-    $drugCount = count($_POST['tradename']);
-    for ($i = 1; $i < $drugCount; $i++) {
-        echo '<div>
-                <label for="tradename_' . ($i + 1) . '">Trade Name:</label>
-                <input type="text" name="tradename[]" id="tradename_' . ($i + 1) . '" required>
-              </div>
-              <div>
-                <label for="dosage_' . ($i + 1) . '">Dosage:</label>
-                <input type="text" name="dosage[]" id="dosage_' . ($i + 1) . '" required>
-              </div>
-              <div>
-                <label for="amount_' . ($i + 1) . '">Amount:</label>
-                <input type="text" name="amount[]" id="amount_' . ($i + 1) . '" required>
-              </div>';
-    }
-    echo '</div>';
-}
-?>

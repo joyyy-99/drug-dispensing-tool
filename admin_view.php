@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient Portal</title>
+    <title>Admin Portal</title>
     <link rel="stylesheet" href="patient_views.css">
 </head>
 <body>
@@ -9,11 +9,15 @@
         <h1>Welcome to My Afya Drug Dispensing Tool</h1>
         <?php
         session_start();
-        if (isset($_SESSION['role']) && $_SESSION['role'] === 'patient') {
+        if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
             $username = $_SESSION['username'];
             echo '<div class="profile-info">';
             echo '<img class="profile-image" src="Images/profile.png" alt="Profile Picture">';
             echo 'Logged in as: ' . $username;
+            echo '<br>';
+            echo 'Admin';
+            echo '<br>';
+            echo '<a href ="logout.php"><button>Log Out </button></a>';
             echo '</div>';
         } else {
             header('Location: login.html');
@@ -39,6 +43,6 @@
     </div>
     <div class="pic">
     <img src="Images/doctorpic.jpg">
-      </div>
+    </div>
 </body>
 </html>
